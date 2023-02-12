@@ -1,11 +1,11 @@
-README.md
+# 功能描述：
 
-#功能描述 ：
 查看 restaurant.json 中的所有餐廳
 搜尋餐廳 方式：輸入關鍵字或選擇餐廳分類(只能擇一)。
 餐廳詳細資料：點選餐廳，及可讀取個別餐廳的詳細資料。
 
-##安裝與執行步驟 ：
+# 安裝與執行步驟：
+
 請先確保本地端有安裝 Node.js 及 npm。
 將本專案下載至本地存放。
 透過終端機移動路徑至該資料夾
@@ -23,16 +23,21 @@ npm run start
 ```
 
 進入網址
-http://localhost:3000/
-結束
-ctrl + c
 
-###環境建置與需求 ：
+```
+http://localhost:3000/
+```
+
+想結束請按 ctrl + c
+
+# 環境建置與需求：
+
 express express-handlebars
 
-####開發工具
-Node.js
-Express 4.16.4
-Express-Handlebars 3.0.0
-bootstrap
-Visual Studio Code
+# 開發工具:
+
+*Node.js
+*Express 4.16.4
+*Express-Handlebars 3.0.0
+*bootstrap
+\*Visual Studio Code
