@@ -32,7 +32,8 @@ http://localhost:3000/
 
 # 環境建置與需求：
 
-express express-handlebars
+- express
+- express-handlebars
 
 # 開發工具:
 
