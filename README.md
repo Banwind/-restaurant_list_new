@@ -36,8 +36,8 @@ express express-handlebars
 
 # 開發工具:
 
-*Node.js
-*Express 4.16.4
-*Express-Handlebars 3.0.0
-*bootstrap
-\*Visual Studio Code
+- Node.js
+- Express 4.16.4
+- Express-Handlebars 3.0.0
+- bootstrap
+  \*Visual Studio Code
