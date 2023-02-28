@@ -1,17 +1,19 @@
 <header>
   <!-- navigation -->
   <nav class="navbar navbar-light bg-light">
-    <div class="container">
+    <div class="container" >
       <a class="navbar-brand" href="/">
         <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
           width="30" height="30" class="d-inline-block align-top" alt="好。吃">
         我的餐廳清單
       </a>
-      <a href="/restaurants/{{ restaurant._id }}/edit">edit</a>
-      <a href="/">back</a>
-      <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
-        <button type="submit">delete</button>
-      </form>
+      <div style="display: flex; justify-content: flex-end;">
+        <a href="/restaurants/{{ restaurant._id }}/edit" style="margin-right: 20px">edit</a>
+        <a href="/" style="margin-right: 20px">back</a>
+        <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;margin-right: 20px">
+          <button type="submit">delete</button>
+        </form>
+      </div>
     </div>
   </nav>
 
