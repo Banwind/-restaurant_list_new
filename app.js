@@ -105,14 +105,23 @@ app.post('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-
-app.get('/search',(req, res) => {
-  const keyword = req.query.keyword.toLowerCase()
-  const restaurant = restaurant.results.filter( restaurant => { 
-    return restaurant.name.toLowerCase().includes(keyword)
-  })
-  res.render('index', { restaurant })
+//刪除資料
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  return restaurants.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
+
+
+// app.get('/search',(req, res) => {
+//   const keyword = req.query.keyword.toLowerCase()
+//   const restaurant = restaurants.filter( restaurant => { 
+//     return restaurant.name.toLowerCase().includes(keyword)
+//   })
+//   res.render('index', { restaurant })
+// })
 
 app.listen(3000,()=>{
   console.log(`This is running on localhost:3000`)

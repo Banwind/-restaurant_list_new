@@ -17,7 +17,7 @@
 <!-- search bar -->
 <div class="container search-bar">
   <div class="search-bar-outer">
-    <div class="search-bar-inner">
+    <div class="search-bar-inner" >
       <form action="/search">
         <h4 class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
@@ -35,21 +35,25 @@
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-10 col-12 mx-auto">
-      <div class="row row-cols-sm-3">
+    <div class="col-md-9 col-6 mx-auto" >
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
         {{#each restaurant}}
         <a href="/restaurants/{{this._id}}" class="text-secondary">
-          <div class="card mb-3">
-            <img class="card-img-top" src="{{this.image}}"
-              alt="{{this.name}}">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <img class="card-img-top" style="height:200px; width:300px" src="{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
               <span style="font-size: 24px" class="card-title mb-1">{{this.name}}</span>
               <span>(⭐{{this.rating}})</span>
               <div class="restaurant-category mb-1">
                 <i class="fas fa-utensils pr-2">{{this.category}}</i>
-                <a href="./restaurants/{{this._id}}">detail</a>
-                <a href="./restaurants/{{this._id}}/edit">edit</a>
               </div>
+            </div>
+            <div style="display: flex; justify-content: flex-end;">
+              <a href="./restaurants/{{this._id}}" style="display: inline-block; margin-right: 20px;">detail</a>
+              <a href="./restaurants/{{this._id}}/edit" style="display: inline-block; margin-right: 20px;">edit</a>
+              <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline-block; margin-right: 20px;">
+                <button type="submit">delete</button>
+              </form>
             </div>
           </div>
         </a>

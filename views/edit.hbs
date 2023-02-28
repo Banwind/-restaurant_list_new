@@ -1,15 +1,58 @@
-<form action="/restaurants/{{ restaurant._id }}/edit" method="POST">
-  <ol>
-    <li><input type="text" placeholder="name" name="name" value="{{ restaurant.name }}"></li>
-    <li><input type="text" placeholder="name_en" name="name_en" value="{{ restaurant.name_en }}"></li>
-    <li><input type="text" placeholder="category" name="category" value="{{ restaurant.category }}"></li>
-    <li><input type="text" placeholder="image" name="image" value="{{ restaurant.image }}"></li>
-    <li><input type="text" placeholder="location" name="location" value="{{ restaurant.location }}"></li>
-    <li><input type="text" placeholder="phone" name="phone" value="{{ restaurant.phone }}"></li>
-    <li><input type="text" placeholder="google_map" name="google_map" value="{{ restaurant.google_map }}"></li>
-    <li><input type="text" placeholder="rating" name="rating" value="{{ restaurant.rating }}"></li>
-    <li><input type="text" placeholder="description" name="description" value="{{ restaurant.description }}"></li>
-  </ol>
-  <button type="submit">Save</button>
-  <a href="/">back</a>
-</form>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form action="/restaurants/{{ restaurant._id }}/edit" method="POST" class="edit-form">
+        <h2>Edit Restaurant</h2>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"
+            value="{{ restaurant.name }}">
+        </div>
+        <div class="form-group">
+          <label for="name_en">English Name</label>
+          <input type="text" class="form-control" id="name_en" placeholder="Enter English name" name="name_en"
+            value="{{ restaurant.name_en }}">
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text" class="form-control" id="category" placeholder="Enter category" name="category"
+            value="{{ restaurant.category }}">
+        </div>
+        <div class="form-group">
+          <label for="image">Image URL</label>
+          <input type="text" class="form-control" id="image" placeholder="Enter image URL" name="image"
+            value="{{ restaurant.image }}">
+        </div>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" class="form-control" id="location" placeholder="Enter location" name="location"
+            value="{{ restaurant.location }}">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" class="form-control" id="phone" placeholder="Enter phone number" name="phone"
+            value="{{ restaurant.phone }}">
+        </div>
+        <div class="form-group">
+          <label for="google_map">Google Map URL</label>
+          <input type="text" class="form-control" id="google_map" placeholder="Enter Google Map URL" name="google_map"
+            value="{{ restaurant.google_map }}">
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating</label>
+          <input type="text" class="form-control" id="rating" placeholder="Enter rating" name="rating"
+            value="{{ restaurant.rating }}">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" rows="5" placeholder="Enter description"
+            name="description">{{ restaurant.description }}</textarea>
+        </div>
+        <div class="button-group">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <a href="/" class="btn btn-secondary">Back</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,9 @@
       </a>
       <a href="/restaurants/{{ restaurant._id }}/edit">edit</a>
       <a href="/">back</a>
+      <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
+        <button type="submit">delete</button>
+      </form>
     </div>
   </nav>
 
@@ -26,6 +29,7 @@
           類別：
         </span>
         {{restaurant.category}}
+        ⭐({{restaurant.rating}})
       </p>
 
       <p class="mb-1">
@@ -46,7 +50,6 @@
         </span>
         {{restaurant.phone}}
       </p>
-
       <p class="mb-5">
         {{restaurant.description}}
       </p>
