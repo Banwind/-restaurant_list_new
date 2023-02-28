@@ -39,7 +39,7 @@ const restaurantSchema = new Schema({
     type: String, 
   }
 })
-module.exports = mongoose.model('restaurant', restaurantSchema)
+module.exports = mongoose.model('restaurants', restaurantSchema)
 
 // "id": 1,
 // "name": "Sababa 沙巴巴中東美食",

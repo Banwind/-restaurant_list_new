@@ -1,6 +1,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
-const restaurant = require('./models/restaurant_list')
+const restaurants = require('./models/restaurant_list')  //載入model
 const mongoose = require('mongoose') // 載入 mongoose
 
 // 加入這段 code, 僅在非正式環境時, 使用 dotenv
@@ -22,13 +22,17 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}))
-app.set('view engine', 'handlebars')
+app.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
 
 app.use(express.static('public'))
 
+//載入首頁
 app.get('/',(req, res) => {
-  res.render('index', { restaurant })
+  restaurants.find()
+    .lean()
+    .then(restaurant => res.render('index', { restaurant }))
+    .catch(error => console.error(error))
 })
 
 app.get('/restaurants/:restaurant_id',(req, res) => {
