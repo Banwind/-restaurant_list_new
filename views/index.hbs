@@ -7,6 +7,7 @@
           width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
         我的餐廳清單
       </a>
+      <a href="./restaurants/new">新增一間餐廳</a>
     </div>
   </nav>
 
@@ -37,7 +38,7 @@
     <div class="col-md-10 col-12 mx-auto">
       <div class="row row-cols-sm-3">
         {{#each restaurant}}
-        <a href="/restaurants/{{this.id}}" class="text-secondary">
+        <a href="/restaurants/{{this._id}}" class="text-secondary">
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}"
               alt="{{this.name}}">
@@ -45,7 +46,9 @@
               <span style="font-size: 24px" class="card-title mb-1">{{this.name}}</span>
               <span>(⭐{{this.rating}})</span>
               <div class="restaurant-category mb-1">
-                <i class="fas fa-utensils pr-2"></i> {{this.category}}
+                <i class="fas fa-utensils pr-2">{{this.category}}</i>
+                <a href="./restaurants/{{this._id}}">detail</a>
+                <a href="./restaurants/{{this._id}}/edit">edit</a>
               </div>
             </div>
           </div>
