@@ -114,15 +114,18 @@ app.post('/restaurants/:id/delete', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//搜尋(這個功能目前有BUG、不確定要怎麼實作)
+app.get('/search',(req, res) => {
+  const keyword = req.query.keyword.toLowerCase()
+  restaurants.find().lean()
+    .then((result) => {
+      restaurants = result.filter( restaurant => restaurant.name.toLowerCase().includes(keyword))
+    })
+    .then(restaurant => res.render('index', { restaurant }))
+    .catch(error => console.error(error))
+})
 
-// app.get('/search',(req, res) => {
-//   const keyword = req.query.keyword.toLowerCase()
-//   const restaurant = restaurants.filter( restaurant => { 
-//     return restaurant.name.toLowerCase().includes(keyword)
-//   })
-//   res.render('index', { restaurant })
-// })
-
+//監聽伺服器
 app.listen(3000,()=>{
   console.log(`This is running on localhost:3000`)
 })
