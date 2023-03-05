@@ -3,8 +3,8 @@ const router = express.Router()
 
 const Restaurant = require('../../models/restaurant_list')
 
-//載入首頁
-router.get('/',(req, res) => {
+// 載入首頁
+router.get('/', (req, res) => {
   Restaurant.find()
     .lean()
     .sort({ _id: 'asc' }) // desc
