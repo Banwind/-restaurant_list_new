@@ -52,7 +52,7 @@
             <div style="display: flex; justify-content: flex-end;">
               <a href="./restaurants/{{this._id}}" style="display: inline-block; margin-right: 20px;">detail</a>
               <a href="./restaurants/{{this._id}}/edit" style="display: inline-block; margin-right: 20px;">edit</a>
-              <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline-block; margin-right: 20px;">
+              <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline-block; margin-right: 20px;">
                 <button type="submit">delete</button>
               </form>
             </div>

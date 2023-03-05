@@ -10,7 +10,7 @@
       <div style="display: flex; justify-content: flex-end;">
         <a href="/restaurants/{{ restaurant._id }}/edit" style="margin-right: 20px">edit</a>
         <a href="/" style="margin-right: 20px">back</a>
-        <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;margin-right: 20px">
+        <form action="/restaurants/{{ restaurant._id }}?_method=DELETE" method="POST" style="display: inline;margin-right: 20px">
           <button type="submit">delete</button>
         </form>
       </div>

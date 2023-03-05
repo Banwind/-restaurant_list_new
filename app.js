@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const restaurants = require('./models/restaurant_list')  //載入model
 const mongoose = require('mongoose') // 載入 mongoose
 const bodyParser = require('body-parser')// 引用 body-parser
+const methodOverride = require('method-override')
 
 // 加入這段 code, 僅在非正式環境時, 使用 dotenv
 if (process.env.NODE_ENV !== 'production') {
@@ -29,6 +30,7 @@ app.set('view engine', 'hbs')
 app.use(express.static('public'))
 // 用 app.use 規定每一筆請求都需要透過 body-parser 進行前置處理
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 //載入首頁
 app.get('/',(req, res) => {
@@ -85,7 +87,7 @@ app.get('/restaurants/:id/edit',(req, res) => {
 })
 
 //將修改完的資訊回傳回資料庫並更新
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   
   return restaurants.findById(id)
@@ -106,7 +108,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 //刪除資料
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return restaurants.findById(id)
     .then(restaurant => restaurant.remove())
