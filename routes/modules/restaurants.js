@@ -54,15 +54,6 @@ router.delete('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// 搜尋(這個功能目前有BUG、不確定要怎麼實作)
-router.get('/search', (req, res) => {
-  const keyword = req.query.keyword.toLowerCase()
-  Restaurants.find().lean()
-    .then((result) => {
-      Restaurants = result.filter(restaurant => restaurant.name.toLowerCase().includes(keyword))
-    })
-    .then(restaurant => res.render('index', { restaurant }))
-    .catch(error => console.error(error))
-})
+
 
 module.exports = router
