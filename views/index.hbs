@@ -8,7 +8,7 @@
         我的餐廳清單
       </a>
       
-      <a href="./restaurants/new"><h1 style="color: blue; font-size: 18px; text-align: center;">新增餐廳</h1></a>
+      <a href="./restaurants/new" class="btn btn-secondary">新增餐廳</a>
     </div>
   </nav>
 
@@ -16,42 +16,37 @@
 </header>
 
 <!-- search bar、sort function -->
-<div class="row" style="display: flex">
-  <div class="col-sm-6"  >
-    <!-- 這裡放置搜尋功能的 HTML 內容 -->
-    <div class="container search-bar" style="display: flex; justify-content: space-between">
-      <div class="search-bar-outer">
+  <div class="col-sm-12">
+    <div class="container search-bar">
+      <div class="search-bar-outer" style="display: flex; justify-content: space-between;align-items: center;" >
         <div class="search-bar-inner">
+          <!-- 這裡放置搜尋功能的 HTML 內容 -->
           <form action="/search">
-            <h4 class="mb-2">尋找餐廳：</h4>
             <div class="input-group">
-              <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
-                value="" aria-describedby="search-button">
-              <div class="input-group-append">
-                <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+              <h4 class="mt-2">尋找餐廳：</h4>
+              <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..." value="" aria-describedby="search-button">
+              <div class="input-group-append mt-1">
+                <button class="btn btn-major ml-2" type="submit" id="search-button"><i class="fas fa-search"></i></button>
               </div>
             </div>
           </form>
         </div>
+        <!-- 這裡放置排序功能的 HTML 內容 -->
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Sort
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="/az">A -> Z</a></li>
+            <li><a class="dropdown-item" href="/za">Z -> A</a></li>
+            <li><a class="dropdown-item" href="/category">類別</a></li>
+            <li><a class="dropdown-item" href="/region">地區</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-6 justify-content-end">
-    <!-- 這裡放置排序功能的 HTML 內容 -->
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Sort
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="/az">A -> Z</a></li>
-        <li><a class="dropdown-item" href="/za">Z -> A</a></li>
-        <li><a class="dropdown-item" href="/category">類別</a></li>
-        <li><a class="dropdown-item" href="/region">地區</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
 
 
 <!-- restaurant list -->
@@ -71,10 +66,10 @@
               </div>
             </div>
             <div style="display: flex; justify-content: flex-end;">
-              <a href="./restaurants/{{this._id}}" style="display: inline-block; margin-right: 20px;">detail</a>
-              <a href="./restaurants/{{this._id}}/edit" style="display: inline-block; margin-right: 20px;">edit</a>
+              <a href="./restaurants/{{this._id}}" style="display: inline-block; margin-right: 15px; " class="btn btn-secondary">detail</a>
+              <a href="./restaurants/{{this._id}}/edit" style="display: inline-block; margin-right: 15px;" class="btn btn-secondary">edit</a>
               <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline-block; margin-right: 20px;">
-                <button type="submit">delete</button>
+                <button type="submit" class="btn btn-danger">delete</button>
               </form>
             </div>
           </div>
