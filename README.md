@@ -6,7 +6,12 @@ A little tool to recording your own favorite restaurants and make your own pocke
 
 ##Features
 
--add manage page for batch update and modify.
+功能描述 (features)：
+- 使用者可以新增一家餐廳
+- 使用者可以瀏覽一家餐廳的詳細資訊
+- 使用者可以瀏覽全部所有餐廳
+- 使用者可以修改一家餐廳的資訊
+- 使用者可以刪除一家餐廳
 
 輸入以下內容，安裝與本專案相關的套件：
 
@@ -26,17 +31,10 @@ http://localhost:3000/
 
 想結束請按 ctrl + c
 
-# 環境建置與需求：
+# 環境與開發工具:
 
-- express
-- express-handlebars
-
-# 開發工具:
-
-- Node.js
-- Express 4.16.4
-- mongoDB
-- mongoose
-- Express-Handlebars 3.0.0
-- bootstrap
-  \*Visual Studio Code
+- "body-parser": "^1.20.2",
+- "express": "^4.17.1",
+- "express-handlebars": "^4.0.2",
+- "method-override": "^3.0.0",
+- "mongoose": "^5.9.7"
