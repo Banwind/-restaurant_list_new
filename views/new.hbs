@@ -5,45 +5,45 @@
         <h2>Create Restaurant</h2>
         <div class="form-group">
           <label for="name">Name:</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+          <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required>
         </div>
         <div class="form-group">
           <label for="name_en">English Name:</label>
-          <input type="text" class="form-control" id="name_en" placeholder="Enter English name" name="name_en">
+          <input type="text" class="form-control" id="name_en" placeholder="Enter English name" name="name_en" required>
         </div>
         <div class="form-group">
           <label for="category">Category:</label>
-          <input type="text" class="form-control" id="category" placeholder="Enter category" name="category">
+          <input type="text" class="form-control" id="category" placeholder="Enter category" name="category" required>
         </div>
         <div class="form-group">
           <label for="image">Image URL:</label>
           <input type="text" class="form-control" id="image" placeholder="Enter image URL" name="image"
-            value="{{ restaurant.image }}">
+            value="{{ restaurant.image }}" required>
         </div>
         <div class="form-group">
           <label for="location">Location:</label>
           <input type="text" class="form-control" id="location" placeholder="Enter location" name="location"
-            value="{{ restaurant.location }}">
+            value="{{ restaurant.location }}" required>
         </div>
         <div class="form-group">
           <label for="phone">Phone:</label>
           <input type="text" class="form-control" id="phone" placeholder="Enter phone number" name="phone"
-            value="{{ restaurant.phone }}">
+            value="{{ restaurant.phone }}" required>
         </div>
         <div class="form-group">
           <label for="google_map">Google Map URL:</label>
           <input type="text" class="form-control" id="google_map" placeholder="Enter Google Map URL" name="google_map"
-            value="{{ restaurant.google_map }}">
+            value="{{ restaurant.google_map }}" required>
         </div>
         <div class="form-group">
           <label for="rating">Rating:</label>
           <input type="text" class="form-control" id="rating" placeholder="Enter rating" name="rating"
-            value="{{ restaurant.rating }}">
+            value="{{ restaurant.rating }}" required>
         </div>
         <div class="form-group">
           <label for="description">Description:</label>
           <textarea class="form-control" id="description" rows="5" placeholder="Enter description"
-            name="description">{{ restaurant.description }}</textarea>
+            name="description" required>{{ restaurant.description }}</textarea>
         </div>
         <div class="button-group">
           <button type="submit" class="btn btn-primary">Save</button>
