@@ -7,7 +7,7 @@ router.get('/new', (req, res) => {
   return res.render('new')
 })
 
-// 接住新增餐廳的資料(還需要Debug)
+// 接住新增餐廳的資料
 router.post('/', (req, res) => {
   const Restaurant = new Restaurants({ ...req.body })
 
