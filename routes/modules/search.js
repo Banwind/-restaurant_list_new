@@ -2,13 +2,14 @@ const express = require('express')
 const router = express.Router()
 const Restaurants = require('../../models/restaurant_list')
 
+
 router.get('/', (req, res) => {
   const keyword = req.query.keyword.trim().toLowerCase()
 
   if (!keyword) {
-    res.redirect('/')
+    return res.redirect('/')
   }
-
+  console.log(keyword)
   return Restaurants.find()
     .lean()
     .then(restaurants => {

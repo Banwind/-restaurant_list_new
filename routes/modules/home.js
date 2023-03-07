@@ -16,7 +16,7 @@ router.get('/:sort?', (req, res) => {
     sortOption = { name: 'asc', _id: 'asc' }
   }
 
-  Restaurant.find()
+  return Restaurant.find()
     .lean()
     .sort(sortOption)
     .then(restaurant => res.render('index', { restaurant }))
