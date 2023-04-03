@@ -17,5 +17,5 @@ app.use(routes)
 
 //監聽伺服器
 app.listen(3000,()=>{
-  console.log(`This is running on localhost:3000`)
+  console.log(`This is running on http://localhost:3000/`)
 })
