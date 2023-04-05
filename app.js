@@ -24,6 +24,13 @@ app.use(methodOverride('_method'))
 
 usePassport(app) // 呼叫 Passport 函式並傳入 app，這條要寫在路由之前
 
+app.use((req, res, next) => {
+  // res.locals 是 Express.js 幫我們開的一條捷徑，放在 res.locals 裡的資料，所有的 view 都可以存取。
+  res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.user = req.user
+  next()
+})
+
 app.use(routes)
 
 //監聽伺服器
