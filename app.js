@@ -1,5 +1,6 @@
 const express = require('express')
 const session = require('express-session')
+const usePassport = require('./config/passport') // 載入設定檔，要寫在 express-session 以後
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')// 引用 body-parser
 const methodOverride = require('method-override')
@@ -20,6 +21,9 @@ app.use(session({
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true })) // 用 app.use 規定每一筆請求都需要透過 body-parser 進行前置處理
 app.use(methodOverride('_method'))
+
+usePassport(app) // 呼叫 Passport 函式並傳入 app，這條要寫在路由之前
+
 app.use(routes)
 
 //監聽伺服器
