@@ -17,6 +17,11 @@ router.get('/register', (req, res) => {
   res.render('register')
 })
 
+router.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('/users/login')
+})
+
 router.post('/register', (req, res) => {
   // 取得表單資料
   const { name, email, password, confirmPassword } = req.body
