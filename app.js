@@ -8,13 +8,17 @@ const routes = require('./routes') // 引用路由器
 const flash = require('connect-flash')
 const app = express()
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 require('./config/mongoose') //導入mongoose
 
 app.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 app.use(session({
-  secret: 'ThisIsMySecret',
+  secret: process.env.SESSION_SECRET,
   resave: false, //當設定為true時，會在每一次與使用者互動時，強制將session更新到session store裡
   saveUninitialized: true
 }))
@@ -37,6 +41,6 @@ app.use((req, res, next) => {
 app.use(routes)
 
 //監聽伺服器
-app.listen(3000,()=>{
-  console.log(`This is running on http://localhost:3000/`)
+app.listen(process.env.PORT,()=>{
+  console.log(`This is running on http://localhost:${process.env.PORT}/`)
 })
