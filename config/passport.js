@@ -1,7 +1,8 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const User = require('../models/user')
-const bcrypt = require('bcryptjs')
+// const bcrypt = require('bcryptjs')
+const bcryptUtil = require('../utils/bcryptUtil')
 const FacebookStrategy = require('passport-facebook').Strategy
 
 module.exports = app => {
@@ -19,7 +20,7 @@ module.exports = app => {
         if (!user) {
           return done(null, false, req.flash('error', '找不到此用戶信箱!'))
         }
-        return bcrypt.compare(password, user.password).then(isMatch => {
+        return bcryptUtil.comparePassword(password, user.password).then(isMatch => {
           if (!isMatch) {
             return done(null, false, req.flash('error', '密碼錯誤!'))
           }

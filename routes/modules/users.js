@@ -2,8 +2,10 @@ const express = require('express')
 const router = express.Router()
 const User = require('../../models/user')
 const passport = require('passport')
-const bcrypt = require('bcryptjs')
+// const bcrypt = require('bcryptjs')
+const bcryptUtil = require('../../utils/bcryptUtil')
 
+// 進入登入頁面
 router.get('/login', (req, res) => {
   const error = req.flash('error')
   res.render('login', { error })
@@ -15,16 +17,19 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/users/login'
 }))
 
+// 進入註冊頁面
 router.get('/register', (req, res) => {
   res.render('register')
 })
 
+// 進入登出頁面
 router.get('/logout', (req, res) => {
   req.logout()
   req.flash('success_msg', '你已經成功登出。') // 路由處理函數中，使用 req.flash() 方法將成功或失敗訊息存儲到會話(session)中。
   res.redirect('/users/login')
 })
 
+// 送出註冊資料
 router.post('/register', (req, res) => {
   // 取得表單資料
   const { name, email, password, confirmPassword } = req.body
@@ -57,16 +62,17 @@ router.post('/register', (req, res) => {
         confirmPassword
       }) 
     }
-    return bcrypt
-      .genSalt(10) // 產生「鹽」，並設定複雜度係數為 10
-      .then(salt => bcrypt.hash(password, salt)) // 為使用者密碼「加鹽」，產生雜湊值
-      .then(hash => User.create({
-        name,
-        email,
-        password: hash // 用雜湊值取代原本的使用者密碼
-      }))
+    // hashPassword必須要返回一個promise才能在後面使用.then()
+    return bcryptUtil.hashPassword(password)
+      .then(hash => {
+        User.create({
+          name,
+          email,
+          password: hash // 用雜湊值取代原本的使用者密碼
+        })  
+      })
       .then(() => res.redirect('/'))
-      .catch(err => console.log(err))
+      .catch(error => console.log(error))
   })
   .catch(error => console.log(error))
 })
